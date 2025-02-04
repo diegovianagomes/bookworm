@@ -1,4 +1,4 @@
-package com.diegoviana.bookworm_backend.domain.user;
+package com.diegoviana.bookworm_backend.domain.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;

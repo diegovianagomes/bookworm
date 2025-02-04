@@ -1,7 +1,5 @@
-package com.diegoviana.bookworm_backend.domain.points;
+package com.diegoviana.bookworm_backend.domain.entities;
 
-import com.diegoviana.bookworm_backend.domain.action.Action;
-import com.diegoviana.bookworm_backend.domain.scoring.ScoringMode;
 import jakarta.persistence.*;
 import lombok.Data;
 
