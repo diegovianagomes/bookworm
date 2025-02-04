@@ -26,8 +26,15 @@ public class GroupMember {
     private Integer groupId;
 
     @Column(nullable = false)
-    private Boolean role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
+
+    public enum Role {
+        ADMIN, MEMBER
+    }
+
+
 }

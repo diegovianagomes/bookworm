@@ -68,9 +68,14 @@ public class PointsEarned {
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
+    @PrePersist
+    public void prePersist() {
+        calculateTotalPoints();
+    }
+
     public void calculateTotalPoints() {
         this.totalPoints = this.points
-                .multiply(this.bonusPoints)
+                .multiply(this.multiplier)
                 .add(this.bonusPoints)
                 .subtract(this.penaltyPoints);
     }

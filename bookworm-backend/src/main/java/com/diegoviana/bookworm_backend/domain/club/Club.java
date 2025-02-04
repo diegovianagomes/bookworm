@@ -38,7 +38,7 @@ public class Club {
             name = "created_by",
             nullable = false
     )
-    private User user;
+    private User createdBy;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;

@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tb_action")
@@ -31,8 +32,8 @@ public class Action {
     private ScoringMode scoringMode;
 
     @Column(nullable = false)
-    private String Type;
+    private String type;
 
     @Column(nullable = false)
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
 }
