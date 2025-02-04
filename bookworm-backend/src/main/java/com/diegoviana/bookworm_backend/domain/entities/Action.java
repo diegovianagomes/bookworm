@@ -1,11 +1,8 @@
-package com.diegoviana.bookworm_backend.domain.action;
+package com.diegoviana.bookworm_backend.domain.entities;
 
-import com.diegoviana.bookworm_backend.domain.group.GroupMember;
-import com.diegoviana.bookworm_backend.domain.scoring.ScoringMode;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
