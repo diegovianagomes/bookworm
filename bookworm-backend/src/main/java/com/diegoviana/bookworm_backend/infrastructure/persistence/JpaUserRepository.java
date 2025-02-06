@@ -6,6 +6,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -24,7 +25,12 @@ public class JpaUserRepository  implements UserRepository {
                     .merge(user);
         }
     }
-
+    @Override
+    public List<User> findAll() {
+        return entityManager
+                .createQuery("SELECT u FROM User u", User.class)
+                .getResultList();
+    }
     @Override
     public Optional<User> findById(Integer UserId) {
         return Optional
@@ -34,11 +40,15 @@ public class JpaUserRepository  implements UserRepository {
 
     @Override
     public Optional<User> findByEmail(String email) {
-        return entityManager
-                .createQuery("SELECT u FROM User u WHERE u.email = :email", User.class)
-                .setParameter("email", email)
-                .getResultStream()
-                .findFirst();
+        try {
+            return Optional.ofNullable(
+                    entityManager.createQuery("SELECT u FROM User u WHERE u.email = :email", User.class)
+                            .setParameter("email", email)
+                            .getSingleResult()
+            );
+        } catch (jakarta.persistence.NoResultException e) {
+            return Optional.empty();
+        }
     }
 
     @Override

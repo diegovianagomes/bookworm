@@ -1,6 +1,8 @@
 package com.diegoviana.bookworm_backend.domain.repositories;
 
 import com.diegoviana.bookworm_backend.domain.entities.User;
+
+import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository {
@@ -8,4 +10,5 @@ public interface UserRepository {
     Optional<User> findById(Integer UserId);
     Optional<User> findByEmail(String email);
     void delete(User user);
+    List<User> findAll();
 }
