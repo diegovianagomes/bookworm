@@ -1,9 +1,11 @@
 package com.diegoviana.bookworm_backend.infrastructure.web;
 
+import com.diegoviana.bookworm_backend.application.services.AuthenticationService;
 import com.diegoviana.bookworm_backend.application.services.UserService;
 import com.diegoviana.bookworm_backend.domain.entities.User;
 import com.diegoviana.bookworm_backend.domain.exceptions.EntityNotFoundException;
 import com.diegoviana.bookworm_backend.domain.exceptions.InvalidDataException;
+import com.diegoviana.bookworm_backend.infrastructure.web.dto.LoginRequest;
 import com.diegoviana.bookworm_backend.infrastructure.web.dto.UserRequest;
 import com.diegoviana.bookworm_backend.infrastructure.web.dto.UserResponse;
 import org.springframework.http.HttpStatus;
@@ -18,6 +20,7 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -38,6 +41,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
     }
+
 
     @PutMapping("/{userId}")
     public ResponseEntity<UserResponse> updateUser(
